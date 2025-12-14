@@ -1,82 +1,162 @@
-
 import 'package:flutter/material.dart';
+import 'package:tripsuite_app_boilerplate/features/auth/login_screen.dart';
 
-class OnboardingScreen1 extends StatelessWidget{
+class OnboardingScreen1 extends StatelessWidget {
   const OnboardingScreen1({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 175, 215, 234),
-     body:SafeArea(
-      child:Column(
-        children: [
-          const Spacer(),
-
-          SizedBox(
-            height: 280,
-            child: Image.asset("assets/images/onboarding_screen_1_logo.png",
-            fit: BoxFit.contain,
-            ),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 24,
+            left: 24,
+            right: 0,
+            bottom: 24,
           ),
+          child: Column(
+            children: [
+              const Spacer(),
 
-          const SizedBox(height: 40),
+              // Logo Container with shadow
+              Container(
+                width: 204,
+                height: 180,
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    // Logo Image with shadow and border radius
+                    Container(
+                      width: 96,
+                      height: 96,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 15,
+                            offset: const Offset(0, 10),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                          "assets/images/onboarding_screen_1_logo.png",
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              color: Colors.grey[200],
+                              child: const Icon(
+                                Icons.image,
+                                size: 48,
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
 
-          //Title
+                    const SizedBox(height: 32),
 
-          const Text("Discover Beautiful Stays",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 26,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+                    // Title: TripSuite
+                    const Text(
+                      "TripSuite",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        height: 1.5,
+                        letterSpacing: 0.0029296875,
+                        color: Color(0xFF155DFC),
+                      ),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    // Subtitle: Plan. Book. Share. Together.
+                    const Text(
+                      "Plan. Book. Share. Together.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        height: 1.5,
+                        letterSpacing: -0.01953125,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const Spacer(),
+
+              // Get Started Button
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Container(
+                  width: double.infinity,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: const Color(0xFF2B7FFF),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 15,
+                        offset: const Offset(0, 10),
+                      ),
+                    ],
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(16),
+                      child: const Center(
+                        child: Text(
+                          "Get Started",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            height: 1.5,
+                            letterSpacing: -0.01953125,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          ),
-
-          const SizedBox(height: 16),
-
-          //subtitle
-
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Text("Find the perfect places for your next trip",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-            ),
-            ),
-
-            const Spacer(),
-
-            //Pagination Dots
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _dot(isActive:true),
-                   _dot(isActive:false),
-                      _dot(isActive:false),
-              ],
-            ),
-
-            SizedBox(height: 30),
-        ],
-      )
-     )
+        ),
+      ),
     );
-  }
-
-  //Dot widget
-  static Widget _dot({required bool isActive}){
-return Container(
-  margin: const EdgeInsets.symmetric(horizontal: 6),
-  width: isActive ? 12 : 8,
-  height: 8,
-  decoration: BoxDecoration(
-    color: isActive ? Colors.black :Colors.grey.shade400,
-    borderRadius: BorderRadius.circular(4),
-  ),
-);
   }
 }
