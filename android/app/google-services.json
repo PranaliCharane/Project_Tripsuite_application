@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "735450560826",
+    "project_id": "tripsuite-app",
+    "storage_bucket": "tripsuite-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:735450560826:android:0b6dad4a92672384567803",
+        "android_client_info": {
+          "package_name": "com.example.tripsuite_app_boilerplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "735450560826-g5en8tqb1f98bflg5jv9fsl1jl88esh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tripsuite_app_boilerplate",
+            "certificate_hash": "4ee5b78965e793bc5203ce0daad7b31b4dee7b6f"
+          }
+        },
+        {
+          "client_id": "735450560826-u5va5msjnb2rh7bbdba30hj6fot936gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFI_RU_ngv2-s2SF4Sg5RWgHYyzfHxoVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735450560826-u5va5msjnb2rh7bbdba30hj6fot936gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
