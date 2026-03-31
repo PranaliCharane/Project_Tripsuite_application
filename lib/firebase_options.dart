@@ -28,7 +28,7 @@ class DefaultFirebaseOptions {
   /// 🔹 Android Config
   static final FirebaseOptions android = FirebaseOptions(
     apiKey: dotenv.env['FIREBASE_API_KEY'] ?? '',
-    appId: '1:735450560826:android:0b6dad4a92672384567803',
+    appId: dotenv.env['FIREBASE_APP_ID'] ?? '',
     messagingSenderId: dotenv.env['FIREBASE_SENDER_ID'] ?? '',
     projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
     storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
